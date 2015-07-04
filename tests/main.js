@@ -1,7 +1,8 @@
-var assertionModifiers = require('../src/modifiers/assertions');
+var assertionsModifier = require('../src/modifiers/assertions');
+var testsModifier = require('../src/modifiers/tests');
 var assert = require('assert');
 var fs = require('fs');
-var noOfData = 1;
+var noOfData = 2;
 
 var oneToTenArray = [];
 for(var i = 1; i <= noOfData; i++) {
@@ -18,8 +19,17 @@ var expectedData = oneToTenArray.map(function (i) {
 
 describe('Assertions modules', function () {
 	it('should have a working assertion modifier', function () {
-		for(var i = 0; i < noOfData; i++) {
-			var result = assertionModifiers(testData[i]);
+		for(var i = 0; i < 1; i++) {
+			var result = assertionsModifier(testData[i]);
+			assert.equal(result, expectedData[i]);
+		}
+	});
+});
+
+describe('Tests working', function () {
+	it('should have a workign tests modifier', function () {
+		for(var i = 1; i < 2; i++) {
+			var result = testsModifier(testData[i]);
 			assert.equal(result, expectedData[i]);
 		}
 	});
