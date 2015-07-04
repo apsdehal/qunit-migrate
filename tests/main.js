@@ -1,8 +1,9 @@
 var assertionsModifier = require('../src/modifiers/assertions');
 var testsModifier = require('../src/modifiers/tests');
+var globalsModifier = require('../src/modifiers/globals');
 var assert = require('assert');
 var fs = require('fs');
-var noOfData = 2;
+var noOfData = 3;
 
 var oneToTenArray = [];
 for(var i = 1; i <= noOfData; i++) {
@@ -35,3 +36,11 @@ describe('Tests working', function () {
 	});
 });
 
+describe('Globals working', function () {
+	it('should have a workign tests modifier', function () {
+		for(var i = 2; i < 3; i++) {
+			var result = globalsModifier(testData[i]);
+			assert.equal(result, expectedData[i]);
+		}
+	});
+});
