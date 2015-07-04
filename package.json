@@ -4,7 +4,7 @@
   "description": "Migrate old QUnit code to 2.x",
   "main": "index.js",
   "scripts": {
-   "test": "./node_modules/mocha/bin/mocha -u bdd tests/test.js"
+   "test": "./node_modules/mocha/bin/mocha -u bdd tests/main.js"
   },
   "repository": {
     "type": "git",
