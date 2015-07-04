@@ -10,7 +10,7 @@ module.exports = function (data) {
   var result = data;
 
   assertions.map(function (assertion) {
-    var regex = new RegExp('' + assertion + '\\(', 'g');
+    var regex = new RegExp('\^' + assertion + '\\(', 'g');
     var replacement = assertPrefix + assertion + '(';
     result = result.replace(regex, replacement);
   });
