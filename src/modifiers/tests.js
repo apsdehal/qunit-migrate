@@ -2,12 +2,12 @@ module.exports = function (data) {
 	var tests = [ 'test', 'asyncTest' ];
 	var qunitPrefix = 'QUnit.';
 	var result = data;
-	var functionRegex = new RegExp('function\s?()', 'g');
+	var functionRegex = new RegExp('function' +'\\s*' + '\\(\\)', 'g');
 	var functionReplacement = 'function( assert )';
 
 	tests.map(function (test) {
 		var regex = new RegExp('\^' + test + '\\(', 'g');
-		var replacement = qunitPrefix + assertion + '(';
+		var replacement = qunitPrefix + test + '(';
 		result = result.split('\n').map(function (x) {
 			if (regex.test(x)) {
 				x = x.replace(functionRegex, functionReplacement);
