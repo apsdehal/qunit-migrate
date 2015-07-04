@@ -12,7 +12,9 @@ module.exports = function (data) {
   assertions.map(function (assertion) {
     var regex = new RegExp('\^' + assertion + '\\(', 'g');
     var replacement = assertPrefix + assertion + '(';
-    result = result.replace(regex, replacement);
+    result = result.split('\n').map(function (x) {
+      return x.replace(regex, replacement);
+    }).join('\n');
   });
 
   return result;
