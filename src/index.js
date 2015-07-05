@@ -12,13 +12,20 @@ var options =  {
   doubleQuotes: doubleQuotes
 };
 
-files.forEach(file, function () {
+files.forEach(function (file) {
   fs.readFile(file, function (err, data) {
-  	var migrated = main(err, data, options);
+    if (err) {
+      console.log(logSymbols.error
+                  + ' Failed to write for ' + file + '\n' + err);
+      return err;
+    }
+
+  	var migrated = main(data.toString(), options);
     if (shouldWeWrite) {
-      writeFile(file, data);
+      writeFile(file, migrated);
     } else {
-      console.log(logSymbols.success + 'Success')
+      console.log(migrated);
+      console.log(logSymbols.success + ' Success');
     }
   });
 });
@@ -26,9 +33,9 @@ files.forEach(file, function () {
 function writeFile(file, data) {
   fs.writeFile(file, data, function (err) {
      if (err) {
-      console.log(logSymbols.error + 'failed to write file');
+      console.log(logSymbols.error + ' failed to write file');
      } else {
-      console.log(logSymbols.success + 'wrote file successfully');
+      console.log(logSymbols.success + ' Wrote ' + file + 'successfully');
      }
   });
 }

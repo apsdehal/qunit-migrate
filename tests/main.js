@@ -60,7 +60,7 @@ describe('Main worker', function () {
   it('should have a working main worker', function () {
     var options = { definitions: false };
     for (var i = 6; i < 9; i++) {
-      var result = mainModifier(null, testData[i], options);
+      var result = mainModifier(testData[i], options);
       assert.equal(result, expectedData[i])
       if (i == 6) {
         options.definitions = true;
