@@ -3,8 +3,8 @@ module.exports = function (data) {
   var result = data;
   result = result.split('\n');
   var defineResults = testDefine(result);
-  if (defineResult.found) {
-    return defineResult.result;
+  if (defineResults.found) {
+    return defineResults.result;
   }
   var anonResults = testAnon(result);
   if (anonResults.found) {
@@ -12,15 +12,15 @@ module.exports = function (data) {
   }
 }
 
-var replacementDefine = 'define( [\'qunit\'\n';
+var replacementDefine = 'define( [\'qunit\'';
 var replacementAnonStart = '( function( QUnit,';
 var replacementAnonEnd = '})( QUnit, ';
 
 function testDefine(data) {
   var regex = new RegExp('\^' + 'define\\(', 'g');
-  var depsRegex = new RegExp('\[');
-  var functionRegex = new RegExp('function\\s*(');
-  var noDefinition = new RegExp('\^' + 'define\\(\\s*\[');
+  var depsRegex = new RegExp('\\[', 'g');
+  var functionRegex = new RegExp('function\\s*\\(');
+  var noDefinition = new RegExp('\^' + 'define\\(\\s*\\[');
   var depsToBeFound = false;
   var qunitDepToBeInserted = false;
   var foundDefine = false;
@@ -36,20 +36,20 @@ function testDefine(data) {
           depsToBeFound = true;
         }
       }
+    }
 
-      if (depsToBeFound) {
-        if (depsRegex.test(x)) {
-          x = x.replace(depsRegex, '[\'qunit\'\n');
-          qunitDepToBeInserted = true;
-          depsToBeFound = false;
-        }
+    if (depsToBeFound) {
+      if (depsRegex.test(x)) {
+        x = x.replace(depsRegex, '[ \'qunit\'\,');
+        qunitDepToBeInserted = true;
+        depsToBeFound = false;
       }
+    }
 
-      if (qunitDepToBeInserted) {
-        if (functionRegex.test(x)) {
-          x = x.replace(functionRegex, 'function ( QUnit, ');
-            qunitDepToBeInserted = false;
-        }
+    if (qunitDepToBeInserted) {
+      if (functionRegex.test(x)) {
+        x = x.replace(functionRegex, 'function ( QUnit, ');
+          qunitDepToBeInserted = false;
       }
     }
     return x;

@@ -1,9 +1,10 @@
 var assertionsModifier = require('../src/modifiers/assertions');
 var testsModifier = require('../src/modifiers/tests');
 var globalsModifier = require('../src/modifiers/globals');
+var definitionsModifier = require('../src/modifiers/definitions');
 var assert = require('assert');
 var fs = require('fs');
-var noOfData = 3;
+var noOfData = 4;
 
 var oneToTenArray = [];
 for(var i = 1; i <= noOfData; i++) {
@@ -28,7 +29,7 @@ describe('Assertions modules', function () {
 });
 
 describe('Tests working', function () {
-	it('should have a workign tests modifier', function () {
+	it('should have a working tests modifier', function () {
 		for(var i = 1; i < 2; i++) {
 			var result = testsModifier(testData[i]);
 			assert.equal(result, expectedData[i]);
@@ -37,9 +38,18 @@ describe('Tests working', function () {
 });
 
 describe('Globals working', function () {
-	it('should have a workign tests modifier', function () {
+	it('should have a working tests modifier', function () {
 		for(var i = 2; i < 3; i++) {
 			var result = globalsModifier(testData[i]);
+			assert.equal(result, expectedData[i]);
+		}
+	});
+});
+
+describe('Definitions working', function () {
+	it('should have a working definitions modifier', function () {
+		for(var i = 3; i < 4; i++) {
+			var result = definitionsModifier(testData[i]);
 			assert.equal(result, expectedData[i]);
 		}
 	});
