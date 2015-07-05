@@ -1,52 +1,55 @@
-test('Def tests 1');
-asyncTest('Def tests 2');
-QUnit.test('Def tests 3');
-QUnit.asyncTest('Def tests 4');
-test('Def tests 5', function () {
+test('Def tests');
+test('Def tests');
+// Same tests are here to check if regex is wokring properly second time
+asyncTest('Def tests');
+asyncTest('Def tests');
+QUnit.test('Def tests 2');
+QUnit.asyncTest('Def tests 3');
+test('Def tests', function () {
 
 });
 
-test('Def tests 6', function() {
+test('Def tests', function() {
 
 });
 
-test('Def tests 7', function(){
+test('Def tests', function(){
 
 });
 
-asyncTest('Def tests 8', function () {
+asyncTest('Def tests', function () {
 
 });
 
-asyncTest('Def tests 9', function() {
+asyncTest('Def tests', function() {
 
 });
 
-asyncTest('Def tests 10', function(){
+asyncTest('Def tests', function(){
 
 });
 
 // Won't match all these so these would remain as they are
-QUnit.test('Def tests 11', function () {
+QUnit.test('Def tests', function () {
 
 });
 
-QUnit.test('Def tests 12', function() {
+QUnit.test('Def tests', function() {
 
 });
 
-QUnit.test('Def tests 13', function(){
+QUnit.test('Def tests', function(){
 
 });
 
-QUnit.asyncTest('Def tests 14', function () {
+QUnit.asyncTest('Def tests', function () {
 
 });
 
-QUnit.asyncTest('Def tests 15', function() {
+QUnit.asyncTest('Def tests', function() {
 
 });
 
-QUnit.asyncTest('Def tests 16', function(){
+QUnit.asyncTest('Def tests', function(){
 
 });

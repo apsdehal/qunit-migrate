@@ -1,4 +1,5 @@
 ok(1, 1);
+ok(1, 1);
 equal(1, 1);
 notEqual(1, 1);
 propEqual(1, 1);

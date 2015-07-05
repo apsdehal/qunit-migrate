@@ -1,4 +1,5 @@
 assert.ok(1, 1);
+assert.ok(1, 1);
 assert.equal(1, 1);
 assert.notEqual(1, 1);
 assert.propEqual(1, 1);
