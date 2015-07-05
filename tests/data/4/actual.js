@@ -1,0 +1,5 @@
+define('myModule', [
+	'jquery'
+], function ($) {
+
+});
