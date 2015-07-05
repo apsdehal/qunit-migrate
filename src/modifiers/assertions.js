@@ -10,10 +10,15 @@ module.exports = function (data) {
   var result = data;
 
   assertions.map(function (assertion) {
-    var regex = new RegExp('\^' + assertion + '\\(', 'g');
+    var regex = new RegExp('\^' + assertion + '\\(');
+    var regexWithoutStart = new RegExp(assertion + '\\(');
     var replacement = assertPrefix + assertion + '(';
     result = result.split('\n').map(function (x) {
-      return x.replace(regex, replacement);
+      var stripped = x.trim();
+      if (regex.test(stripped)) {
+        x = x.replace(regexWithoutStart, replacement);
+      }
+      return x;
     }).join('\n');
   });
 

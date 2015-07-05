@@ -2,16 +2,22 @@ module.exports = function (data) {
   var globals = [
     "begin", "done", "log",
     "testStart", "testDone",
-    "moduleStart", "moduleDone"
+    "moduleStart", "moduleDone",
+    "module", "start", "stop"
   ];
   var qunitPrefix = 'QUnit.';
   var result = data;
 
   globals.map(function (global) {
-    var regex = new RegExp('\^' + global + '\\(', 'g');
+    var regex = new RegExp('\^' + global + '\\(');
+    var regexWithoutStart = new RegExp(global + '\\(');
     var replacement = qunitPrefix + global + '(';
     result = result.split('\n').map(function (x) {
-      return x.replace(regex, replacement);
+      var stripped = x.trim();
+      if (regex.test(stripped)) {
+        x = x.replace(regexWithoutStart, replacement);
+      }
+      return x;
     }).join('\n');
   });
 
