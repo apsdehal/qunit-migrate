@@ -59,8 +59,8 @@ function testDefine(data) {
 }
 
 function testAnon(data) {
-  var regex = new RegExp('\^' + '\(\\s*function\\s*\(', 'g');
-  var matchAnonRegex = new RegExp('\}\)\(', 'g');
+  var regex = new RegExp('\^' + '\\(\\s*function\\s*\\(', 'g');
+  var matchAnonRegex = new RegExp('\\}\\)\\(\\s*', 'g');
   var matchAnonToBeFound = false;
   var foundAnon = false;
   var result = data.map(function (x) {
@@ -71,11 +71,11 @@ function testAnon(data) {
         foundAnon = true;
       }
 
-      if (matchAnonToBeFound) {
-        if (matchAnonRegex.test(x)) {
-          x = x.replace(matchAnonRegex, replacementAnonEnd);
-          matchAnonToBeFound = false;
-        }
+    }
+    if (matchAnonToBeFound) {
+      if (matchAnonRegex.test(x)) {
+        x = x.replace(matchAnonRegex, replacementAnonEnd);
+        matchAnonToBeFound = false;
       }
     }
     return x;
