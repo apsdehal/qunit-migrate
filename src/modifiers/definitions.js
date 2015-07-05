@@ -12,7 +12,9 @@ module.exports = function (data) {
   }
 }
 
-var replacement = 'define( [\'qunit\'\n';
+var replacementDefine = 'define( [\'qunit\'\n';
+var replacementAnonStart = '( function( QUnit,';
+var replacementAnonEnd = '})( QUnit, ';
 
 function testDefine(data) {
   var regex = new RegExp('\^' + 'define\\(', 'g');
@@ -24,32 +26,60 @@ function testDefine(data) {
   var foundDefine = false;
 
   var result = data.map(function (x) {
-    if (regex.test(x)) {
-      foundDefine = true;
-      if (noDefinition.test(x)) {
-        x = x.replace(noDefinition, replacement);
-        qunitDepToBeInserted = true;
-      } else {
-        depsToBeFound = true;
+    if (!foundDefine) {
+      if (regex.test(x)) {
+        foundDefine = true;
+        if (noDefinition.test(x)) {
+          x = x.replace(noDefinition, replacementDefine);
+          qunitDepToBeInserted = true;
+        } else {
+          depsToBeFound = true;
+        }
       }
-    }
 
-    if (depsToBeFound) {
-      if (depsRegex.test(x)) {
-        x = x.replace(depsRegex, '[\'qunit\'\n');
-        qunitDepToBeInserted = true;
-        depsToBeFound = false;
+      if (depsToBeFound) {
+        if (depsRegex.test(x)) {
+          x = x.replace(depsRegex, '[\'qunit\'\n');
+          qunitDepToBeInserted = true;
+          depsToBeFound = false;
+        }
       }
-    }
 
-    if (qunitDepToBeInserted) {
-      if (functionRegex.test(x)) {
-        x = x.replace(functionRegex, 'function ( QUnit, ');
-          qunitDepToBeInserted = false;
+      if (qunitDepToBeInserted) {
+        if (functionRegex.test(x)) {
+          x = x.replace(functionRegex, 'function ( QUnit, ');
+            qunitDepToBeInserted = false;
+        }
       }
     }
     return x;
   }).join('\n');
 
   return { result: result, found: foundDefine };
+}
+
+function testAnon(data) {
+  var regex = new RegExp('\^' + '\(\\s*function\\s*\(', 'g');
+  var matchAnonRegex = new RegExp('\}\)\(', 'g');
+  var matchAnonToBeFound = false;
+  var foundAnon = false;
+  var result = data.map(function (x) {
+    if (!foundAnon) {
+      if (regex.test(x)) {
+        x = x.replace(regex, replacementAnonStart);
+        matchAnonToBeFound = true;
+        foundAnon = true;
+      }
+
+      if (matchAnonToBeFound) {
+        if (matchAnonRegex.test(x)) {
+          x = x.replace(matchAnonRegex, replacementAnonEnd);
+          matchAnonToBeFound = false;
+        }
+      }
+    }
+    return x;
+  }).join('\n');
+
+  return { result: result, found: foundAnon };
 }
