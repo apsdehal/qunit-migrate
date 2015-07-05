@@ -12,7 +12,7 @@ module.exports = function (data) {
   }
 }
 
-var replacementDefine = 'define( [ \'qunit\'\,';
+var replacementDefine = 'define([ \'qunit\'\,';
 var replacementAnonStart = '( function( QUnit,';
 var replacementAnonEnd = '} )( QUnit, ';
 
@@ -51,7 +51,7 @@ function testDefine(data) {
 
     if (qunitDepToBeInserted) {
       if (functionRegex.test(x)) {
-        x = x.replace(functionRegex, 'function ( QUnit, ');
+        x = x.replace(functionRegex, 'function( QUnit,');
           qunitDepToBeInserted = false;
       }
     }

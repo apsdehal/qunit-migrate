@@ -5,7 +5,7 @@ var definitionsModifier = require('../src/modifiers/definitions');
 var mainModifier = require('../src/main');
 var assert = require('assert');
 var fs = require('fs');
-var noOfData = 8;
+var noOfData = 9;
 
 var oneToTenArray = [];
 for(var i = 1; i <= noOfData; i++) {
@@ -59,7 +59,7 @@ describe('Definitions modules', function () {
 describe('Main worker', function () {
   it('should have a working main worker', function () {
     var options = { definitions: false };
-    for (var i = 6; i < 8; i++) {
+    for (var i = 6; i < 9; i++) {
       var result = mainModifier(null, testData[i], options);
       assert.equal(result, expectedData[i])
       if (i == 6) {

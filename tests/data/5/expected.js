@@ -1,5 +1,5 @@
-define( [ 'qunit',
+define([ 'qunit',
 	'jquery'
-], function ( QUnit, $) {
+], function( QUnit, $ ) {
 
 });

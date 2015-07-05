@@ -1,5 +1,5 @@
 define('myModule', [ 'qunit',
 	'jquery'
-], function ( QUnit, $) {
+], function( QUnit, $ ) {
 
 });

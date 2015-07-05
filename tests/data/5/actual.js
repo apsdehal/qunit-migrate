@@ -1,5 +1,5 @@
 define([
 	'jquery'
-], function ($) {
+], function ( $ ) {
 
 });
