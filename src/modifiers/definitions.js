@@ -12,13 +12,13 @@ module.exports = function (data) {
   }
 }
 
-var replacementDefine = 'define( [\'qunit\'';
+var replacementDefine = 'define( [ \'qunit\'\,';
 var replacementAnonStart = '( function( QUnit,';
 var replacementAnonEnd = '})( QUnit, ';
 
 function testDefine(data) {
   var regex = new RegExp('\^' + 'define\\(', 'g');
-  var depsRegex = new RegExp('\\[', 'g');
+  var depsRegex = new RegExp('\\[\n*', 'g');
   var functionRegex = new RegExp('function\\s*\\(');
   var noDefinition = new RegExp('\^' + 'define\\(\\s*\\[');
   var depsToBeFound = false;
