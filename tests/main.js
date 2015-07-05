@@ -4,7 +4,7 @@ var globalsModifier = require('../src/modifiers/globals');
 var definitionsModifier = require('../src/modifiers/definitions');
 var assert = require('assert');
 var fs = require('fs');
-var noOfData = 5;
+var noOfData = 6;
 
 var oneToTenArray = [];
 for(var i = 1; i <= noOfData; i++) {
@@ -48,7 +48,7 @@ describe('Globals working', function () {
 
 describe('Definitions working', function () {
 	it('should have a working definitions modifier', function () {
-		for(var i = 3; i < 5; i++) {
+		for(var i = 3; i < 6; i++) {
 			var result = definitionsModifier(testData[i]);
 			assert.equal(result, expectedData[i]);
 		}
