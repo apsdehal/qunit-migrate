@@ -1,10 +1,11 @@
 {
   "name": "qunit-migrate",
   "version": "1.0.0",
+  "bin": "src/index.js",
   "description": "Migrate old QUnit code to 2.x",
   "main": "index.js",
   "scripts": {
-   "test": "./node_modules/mocha/bin/mocha -u bdd tests/main.js"
+    "test": "./node_modules/mocha/bin/mocha -u bdd tests/main.js"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,9 @@
   "bugs": {
     "url": "https://github.com/apsdehal/qunit-migrate/issues"
   },
-  "homepage": "https://github.com/apsdehal/qunit-migrate"
+  "homepage": "https://github.com/apsdehal/qunit-migrate",
+  "dependencies": {
+    "log-symbols": "^1.0.2",
+    "minimist": "^1.1.1"
+  }
 }
