@@ -14,7 +14,7 @@ module.exports = function (data) {
 
 var replacementDefine = 'define( [ \'qunit\'\,';
 var replacementAnonStart = '( function( QUnit,';
-var replacementAnonEnd = '})( QUnit, ';
+var replacementAnonEnd = '} )( QUnit, ';
 
 function testDefine(data) {
   var regex = new RegExp('\^' + 'define\\(');
@@ -63,7 +63,7 @@ function testDefine(data) {
 
 function testAnon(data) {
   var regex = new RegExp('\^' + '\\(\\s*function\\s*\\(');
-  var matchAnonRegex = new RegExp('\\}\\)\\(\\s*');
+  var matchAnonRegex = new RegExp('\\}\\s*\\)\\s*\\(\\s*');
   var matchAnonToBeFound = false;
   var foundAnon = false;
   var result = data.map(function (x) {

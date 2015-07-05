@@ -5,7 +5,7 @@ var definitionsModifier = require('../src/modifiers/definitions');
 var mainModifier = require('../src/main');
 var assert = require('assert');
 var fs = require('fs');
-var noOfData = 7;
+var noOfData = 8;
 
 var oneToTenArray = [];
 for(var i = 1; i <= noOfData; i++) {
@@ -22,7 +22,7 @@ var expectedData = oneToTenArray.map(function (i) {
 
 describe('Assertions modules', function () {
   it('should have a working assertion modifier', function () {
-    for(var i = 0; i < 1; i++) {
+    for (var i = 0; i < 1; i++) {
 		  var result = assertionsModifier(testData[i]);
 		  assert.equal(result, expectedData[i]);
     }
@@ -31,7 +31,7 @@ describe('Assertions modules', function () {
 
 describe('Tests modules', function () {
   it('should have a working tests modifier', function () {
-    for(var i = 1; i < 2; i++) {
+    for (var i = 1; i < 2; i++) {
       var result = testsModifier(testData[i]);
       assert.equal(result, expectedData[i]);
     }
@@ -39,8 +39,8 @@ describe('Tests modules', function () {
 });
 
 describe('Globals modules', function () {
-  it('should have a working tests modifier', function () {
-    for(var i = 2; i < 3; i++) {
+  it('should have a working globals modifier', function () {
+    for (var i = 2; i < 3; i++) {
       var result = globalsModifier(testData[i]);
       assert.equal(result, expectedData[i]);
     }
@@ -49,13 +49,22 @@ describe('Globals modules', function () {
 
 describe('Definitions modules', function () {
   it('should have a working definitions modifier', function () {
-    for(var i = 3; i < 6; i++) {
+    for (var i = 3; i < 6; i++) {
       var result = definitionsModifier(testData[i]);
       assert.equal(result, expectedData[i]);
     }
   });
 });
 
-// describe('Main worker', function () {
-//   it
-// });
+describe('Main worker', function () {
+  it('should have a working main worker', function () {
+    var options = { definitions: false };
+    for (var i = 6; i < 8; i++) {
+      var result = mainModifier(null, testData[i], options);
+      assert.equal(result, expectedData[i])
+      if (i == 6) {
+        options.definitions = true;
+      }
+    }
+  });
+});
