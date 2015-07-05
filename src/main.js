@@ -5,7 +5,7 @@ var testsModifier = require('./modifiers/tests');
 
 module.exports = function (err, data, options) {
   if (err) {
-    console.log(err);
+    console.log(logSymbols.error + err);
     return err;
   }
 
