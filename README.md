@@ -8,7 +8,7 @@ Migrate old QUnit code to 2.x
 
 ## Usage
 
-> qunit-migrate "file1, file2, file3" -d -q -w
+> $ qunit-migrate "file1, file2, file3" -d -q -w
 
 __-w__: If you want to write the output to file, default: false
 
@@ -58,3 +58,20 @@ QUnit.test( "should allow String locale", function( assert ) {
 });
 });
 ```
+
+## API
+> $ npm install --save qunit-migrate
+
+```js
+var qunitMigrate = require('qunit-migrate');
+var data = 'Some old qunit code';
+var options = {
+	doubleQuotes: true,
+	definitions: true
+};
+var modifiedData = qunitMigrate(data); // Fixed code
+```
+
+## License
+
+MIT © [Amanpreet Singh](https://apsdehal.in)

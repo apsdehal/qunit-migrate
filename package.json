@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "bin": "src/index.js",
   "description": "Migrate old QUnit code to 2.x",
-  "main": "index.js",
+  "main": "src/main.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha -u bdd tests/main.js"
   },
