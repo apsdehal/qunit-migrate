@@ -69,7 +69,7 @@ var options = {
 	doubleQuotes: true,
 	definitions: true
 };
-var modifiedData = qunitMigrate(data); // Fixed code
+var modifiedData = qunitMigrate(data, options); // Fixed code
 ```
 
 ## License
