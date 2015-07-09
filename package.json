@@ -1,6 +1,6 @@
 {
   "name": "qunit-migrate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "bin": "src/index.js",
   "description": "Migrate old QUnit code to 2.x",
   "main": "src/main.js",
