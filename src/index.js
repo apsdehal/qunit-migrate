@@ -19,6 +19,10 @@ var files = args._[0].split(',').map(function (x) {
   return x.toString().trim().split(".js")[0] + ".js";
 });;
 
+if (definitions === true) {
+  definitions = 'qunit';
+}
+
 var options =  {
 	definitions: definitions,
   doubleQuotes: doubleQuotes

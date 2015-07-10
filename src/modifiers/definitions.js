@@ -1,8 +1,12 @@
-module.exports = function (data) {
+module.exports = function (data, definition) {
+  if (definition === true || !definition) {
+    definition = 'qunit';
+  }
+
   var qunitString = 'QUnit';
   var result = data;
   result = result.split('\n');
-  var defineResults = testDefine(result);
+  var defineResults = testDefine(result, definition);
   if (defineResults.found) {
     return defineResults.result;
   }
@@ -12,11 +16,14 @@ module.exports = function (data) {
   }
 }
 
-var replacementDefine = 'define([ \'qunit\'\,';
 var replacementAnonStart = '( function( QUnit,';
 var replacementAnonEnd = '} )( QUnit, ';
 
-function testDefine(data) {
+
+function testDefine(data, definition) {
+
+  var replacementDefine = 'define( [ \'' + definition + '\'\,';
+
   var regex = new RegExp('\^' + 'define\\(');
   var regexWithoutStart = new RegExp('define\\(');
   var depsRegex = new RegExp('\\[\n*');
@@ -43,7 +50,7 @@ function testDefine(data) {
 
     if (depsToBeFound) {
       if (depsRegex.test(x)) {
-        x = x.replace(depsRegex, '[ \'qunit\'\,');
+        x = x.replace(depsRegex, '[ \'' + definition + '\'\,');
         qunitDepToBeInserted = true;
         depsToBeFound = false;
       }
