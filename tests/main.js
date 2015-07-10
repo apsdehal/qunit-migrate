@@ -5,7 +5,7 @@ var definitionsModifier = require('../src/modifiers/definitions');
 var mainModifier = require('../src/main');
 var assert = require('assert');
 var fs = require('fs');
-var noOfData = 10;
+var noOfData = 11;
 
 var oneToTenArray = [];
 for(var i = 1; i <= noOfData; i++) {
@@ -59,7 +59,7 @@ describe('Definitions modules', function () {
 describe('Main worker', function () {
   it('should have a working main worker', function () {
     var options = { definitions: false };
-    for (var i = 6; i < 10; i++) {
+    for (var i = 6; i < 11; i++) {
       var result = mainModifier(testData[i], options);
       assert.equal(result, expectedData[i])
       if (i == 6) {
@@ -67,6 +67,9 @@ describe('Main worker', function () {
       }
       if (i == 8) {
         options.definitions = 'lib/qunit';
+      }
+      if (i == 9) {
+        options.quotes = '"';
       }
     }
   });
