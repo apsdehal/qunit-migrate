@@ -9,7 +9,7 @@ module.exports = function (data, options) {
   data = testsModifier(data);
 
   if (options.definitions) {
-  	data = definitionsModifier(data, options.definitions);
+  	data = definitionsModifier(data, options);
   }
 
   return data;

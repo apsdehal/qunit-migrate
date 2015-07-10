@@ -23,9 +23,15 @@ if (definitions === true) {
   definitions = 'qunit';
 }
 
+if (doubleQuotes === true) {
+  quotes = '"';
+} else {
+  quotes ='\'';
+}
+
 var options =  {
 	definitions: definitions,
-  doubleQuotes: doubleQuotes
+  quotes: quotes
 };
 
 files.forEach(function (file) {
