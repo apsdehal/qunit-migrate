@@ -64,10 +64,10 @@ function writeFile(file, data) {
 
 function spitHelp() {
   return 'QUnit Migrate\nMigrate your old QUnit code to new api.\n\n'
-         + 'Usage: qunit-migrate "file1, file2, file3" -d -q -w\n\nOptions:\n'
-         + '-w: If you want to write the output to file, default: false\n'
+         + 'Usage: qunit-migrate "file1, file2, file3" -d "lib/qunit" -q -w\n\nOptions:\n\n'
+         + '-w: If you want to write the output to file, default: false\n\n'
 
-         + '-d: If you want definitions support, this will try to add QUnit deps to AMD definitions and anonymous requires.\n Keep in mind, qunit-migrate currently doesn\'t check if qunit definition is already present or not.\n'
+         + '-d: If you want definitions support, this will try to add QUnit deps to AMD definitions and anonymous requires.\nYou can also pass your custom dep instead of qunit like in the example case we are passing lib/qunit.\nSo dep will be added as lib/qunit instead of qunit in requires. \nKeep in mind, qunit-migrate currently doesn\'t check if qunit definition is already present or not.\n\n'
 
-        + '-q: If you want double quoutes support, by default we convert to single quotes';
+        + '-q: If you want double quoutes support, by default we convert to single quotes\n';
 }
