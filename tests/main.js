@@ -2,6 +2,7 @@ var assertionsModifier = require('../src/modifiers/assertions');
 var testsModifier = require('../src/modifiers/tests');
 var globalsModifier = require('../src/modifiers/globals');
 var definitionsModifier = require('../src/modifiers/definitions');
+var asyncModifier = require('../src/modifiers/async');
 var mainModifier = require('../src/main');
 var assert = require('assert');
 var fs = require('fs');
@@ -33,6 +34,7 @@ describe('Tests modules', function () {
   it('should have a working tests modifier', function () {
     for (var i = 1; i < 2; i++) {
       var result = testsModifier(testData[i]);
+      result = asyncModifier(result);
       assert.equal(result, expectedData[i]);
     }
   });

@@ -28,7 +28,8 @@ QUnit.module( libName, {
 } );
 
 $.testHelper.excludeFileProtocol( function() {
-	QUnit.asyncTest( "grade A browser either supports media queries or is IE 7+", function( assert ) {
+	QUnit.test( "grade A browser either supports media queries or is IE 7+", function( assert ) {
+		var done = assert.async();
 		setGradeA( false, 6 );
 		$.testHelper.deferredSequence( [
 			function() {
@@ -46,7 +47,7 @@ $.testHelper.excludeFileProtocol( function() {
 
 			function() {
 				assert.ok( $.mobile.gradeA() );
-				QUnit.start();
+				done();
 			}
 		] );
 	} );
