@@ -32,8 +32,19 @@ describe('Assertions modules', function () {
 
 describe('Tests modules', function () {
   it('should have a working tests modifier', function () {
-    for (var i = 1; i < 3; i++) {
+    for (var i = 1; i < 2; i++) {
       var result = testsModifier(testData[i]);
+      result = asyncModifier(result);
+      assert.equal(result, expectedData[i]);
+    }
+  });
+});
+
+describe('Async modules', function () {
+  it('should have a working async modifier', function () {
+    for (var i = 2; i < 3; i++) {
+      var result = globalsModifier(testData[i]);
+      result = testsModifier(result);
       result = asyncModifier(result);
       assert.equal(result, expectedData[i]);
     }
@@ -64,13 +75,13 @@ describe('Main worker', function () {
     for (var i = 7; i < 12; i++) {
       var result = mainModifier(testData[i], options);
       assert.equal(result, expectedData[i])
-      if (i == 6) {
+      if (i == 7) {
         options.definitions = true;
       }
-      if (i == 8) {
+      if (i == 9) {
         options.definitions = 'lib/qunit';
       }
-      if (i == 9) {
+      if (i == 10) {
         options.quotes = '"';
       }
     }

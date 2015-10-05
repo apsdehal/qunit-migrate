@@ -16,7 +16,7 @@ module.exports = function (data) {
   
   // We have generalized all kind of stops, starts by
   // passing them through global modifier
-  var asyncStopRegex = new RegExp('QUnit\\.stop\\(\\)');
+  var asyncStopRegex = new RegExp('QUnit\\.stop\\(\\);');
   var asyncStartRegex = new RegExp('QUnit\\.start\\(\\)');
   
   var bracketsQueue = new Queue();
@@ -59,15 +59,19 @@ module.exports = function (data) {
           bracketsQueue.dequeue();
         }
 
-        // Remove any stop call found 
-        if (asyncStopRegex.test(stripped)) {
-          x = x.replace(asyncStopRegex, '');
-        }
 
         if (asyncStartRegex.test(stripped)) {
           x = x.replace(asyncStartRegex, 
             donePrefix + (numberOfStarts ? numberOfStarts : '') + '()');
           numberOfStarts++;
+        }
+
+        // Remove any stop call found 
+        if (asyncStopRegex.test(stripped)) {
+          result.splice(i, 1);
+          x = result[i];
+          stripped = x.trim();
+          continue;
         }
 
         // Set new top
@@ -80,15 +84,17 @@ module.exports = function (data) {
         stripped = x.trim();
       }
 
-      var doneStringToBeAppended = '';
+      var doneStringToBeAppended = [];
       var counter = 0;
+
       while(counter < numberOfStarts) {
-        doneStringToBeAppended += 
-        indent + 'var done' + 
-        (counter ? counter : '') + ' = assert.async();';
+        doneStringToBeAppended.push(
+          indent + 'var done' + 
+          (counter ? counter : '') + ' = assert.async();');
         counter++;
       }
 
+      doneStringToBeAppended = doneStringToBeAppended.join('\n');
       if (doneStringToBeAppended.length > 0) {
         result.splice(originalI+1, 0, doneStringToBeAppended);
         // Since we added an element to array, current i needs to be

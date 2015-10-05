@@ -5,9 +5,9 @@ module.exports = function (line) {
 	var indent = detectIndent(line);
 	var indentString = '';
 	var amount = indent.amount + 1;
-	while(amount--) {
-		indentString += indent.indent;;
-	}
 
+	while(amount--) {
+		indentString += indent.indent || '\t';
+	}
 	return indentString;
 }

@@ -1,3 +1,5 @@
-( function ( $ ) {
+define([
+	'jquery'
+], function ( $ ) {
 
-})( jQuery );
+});

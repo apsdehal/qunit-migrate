@@ -1,5 +1,28 @@
-define('myModule', [
-	'jquery'
-], function ( $ ) {
-
-});
+begin();
+begin();
+done();
+done();
+log();
+log();
+testStart();
+testStart();
+testDone();
+testDone();
+moduleStart();
+moduleStart();
+moduleDone();
+moduleDone();
+module();
+module();
+start();
+start();
+stop();
+stop();
+// These won't be changed
+QUnit.begin();
+QUnit.done();
+QUnit.log();
+QUnit.testStart();
+QUnit.testDone();
+QUnit.moduleStart();
+QUnit.moduleDone();

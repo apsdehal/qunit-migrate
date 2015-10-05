@@ -1,3 +1,5 @@
-( function( QUnit, $ ) {
+define( [ 'qunit',
+	'jquery'
+], function( QUnit, $ ) {
 
-} )( QUnit, jQuery );
+});
