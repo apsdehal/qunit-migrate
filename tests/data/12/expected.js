@@ -1,5 +1,5 @@
 // Taken directly from jquery-globalize
-define( [ 'lib/qunit',
+define( [ "lib/qunit",
 	"cldr",
 	"src/core",
 	"json!cldr-data/supplemental/likelySubtags.json",

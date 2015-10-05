@@ -1,28 +1,16 @@
-begin();
-begin();
-done();
-done();
-log();
-log();
-testStart();
-testStart();
-testDone();
-testDone();
-moduleStart();
-moduleStart();
-moduleDone();
-moduleDone();
-module();
-module();
-start();
-start();
-stop();
-stop();
-// These won't be changed
-QUnit.begin();
-QUnit.done();
-QUnit.log();
-QUnit.testStart();
-QUnit.testDone();
-QUnit.moduleStart();
-QUnit.moduleDone();
+// Async tests
+asyncTest("An async test", function () {
+	start();
+});
+
+asyncTest("A test", function () {
+	stop();
+	stop();
+	start();
+	start();
+});
+
+asyncTest("A test", function () {
+	stop();
+	start();
+});
