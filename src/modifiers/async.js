@@ -12,19 +12,28 @@ module.exports = function (data) {
   var regexWithoutStart = new RegExp(test);
   var openingBracketsRegex = new RegExp('\\{');
   var closingBracketsRegex = new RegExp('\\}');
-  var asyncStopRegex = new RegExp('stop\\(\\)');
-  var asyncStartRegex = new RegExp('start\\(\\)');
+  var functionRegex = new RegExp('function\\( assert \\)');
+  
+  // We have generalized all kind of stops, starts by
+  // passing them through global modifier
+  var asyncStopRegex = new RegExp('QUnit\\.stop\\(\\)');
+  var asyncStartRegex = new RegExp('QUnit\\.start\\(\\)');
+  
   var bracketsQueue = new Queue();
 
   for(var i = 0; i < result.length; i++) {
     var x = result[i];
     var stripped = x.trim();
-
     if (regex.test(stripped)) {
       x = x.replace(regexWithoutStart, testReplacement);
 
+      result[i] = x;
+
+      if (!functionRegex.test(stripped)) {
+        continue;        
+      }
       // Get indent for line next to the starting line
-      var indent = Indent(x) + '\t';
+      var indent = Indent(x);
 
 
       foundFirstBracket = false;
@@ -32,10 +41,11 @@ module.exports = function (data) {
       var numberOfStarts = 0;
       var donePrefix = 'done';
       var originalI = i;
+
       // Finding number of calls to start()
       while(top !== null || foundFirstBracket === false) {
         var hasOpeningBrackets = openingBracketsRegex.test(stripped);
-        
+
         if (hasOpeningBrackets) {
           bracketsQueue.enqueue('{');
           if (top === null) {
@@ -81,11 +91,11 @@ module.exports = function (data) {
 
       if (doneStringToBeAppended.length > 0) {
         result.splice(originalI+1, 0, doneStringToBeAppended);
+        // Since we added an element to array, current i needs to be
+        // updated
+        i++;
       }
 
-      // Since we added an element to array, current i needs to be
-      // updated
-      i++;
     }
   }
 
