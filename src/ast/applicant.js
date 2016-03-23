@@ -6,7 +6,7 @@ module.exports = Applicant;
 
 function Applicant() {
   this._generator = new Generator(defaultConfig);
-  this._rules = this._generator._rules;
+  this._rules = this._generator.getRules();
 }
 
 

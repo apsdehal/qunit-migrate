@@ -23,7 +23,7 @@ function ConfigGenerator(config) {
 
 
 ConfigGenerator.prototype.getRules = function () {
-  return this,_rules;
+  return this._rules;
 };
 
 ConfigGenerator.prototype.registerDefaultRules = function () {
