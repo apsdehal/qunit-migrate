@@ -8,14 +8,23 @@ module.exports = ConfigGenerator;
 function ConfigGenerator(config) {
   this._rules = [];
 
-  Object.keys(config).forEach(function (key) {
-    if (config[key] === false) {
-      delete this._rules[key];
+  this.registerDefaultRules();
+
+  var rulesLen = this._rules.length;
+
+  Object.keys(this._rules).forEach(function (prop) {
+    if (this._rules.hasOwnProperty(prop) && !config[prop]) {
+      delete this._rules[prop];
     }
   });
 };
 
-ConfigGenerator.prototype.registerDefaultRules = function() {
+
+ConfigGenerator.prototype.getRules = function () {
+  return this,_rules;
+};
+
+ConfigGenerator.prototype.registerDefaultRules = function () {
     var dir = path.join(__dirname, '../rules');
 
     fs.readdirSync(dir).forEach(function(rule) {
@@ -25,7 +34,7 @@ ConfigGenerator.prototype.registerDefaultRules = function() {
     }, this);
 };
 
-ConfigGenerator.prototype.registerRule = function(rule) {
+ConfigGenerator.prototype.registerRule = function (rule) {
     if (typeof rule === 'function') {
         var RuleClass = rule;
         rule = new RuleClass();
