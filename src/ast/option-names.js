@@ -1,3 +1,4 @@
 module.exports = {
-  'ModuleFunction': 'moduleFunction'
+  'ModuleFunction': 'moduleFunction',
+  'LogFunction': 'logFunction'
 }

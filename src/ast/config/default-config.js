@@ -1,3 +1,4 @@
 module.exports = {
-  moduleFunction: true
+  moduleFunction: true,
+  logFunction: true
 };

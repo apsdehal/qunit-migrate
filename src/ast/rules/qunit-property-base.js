@@ -16,8 +16,9 @@ QUnitPropertyBaseRule.prototype = {
     return node.type === 'Identifier' && node.name === this._property;
   },
 
-  update: function (node) {
+  update: function (node, treeHandle) {
     var _self = this;
+    treeHandle.skip();
     return builder.memberExpression(
       builder.identifier(constants.qunit),
       builder.identifier(_self._property),

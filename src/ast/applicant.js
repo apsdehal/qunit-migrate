@@ -10,15 +10,13 @@ function Applicant() {
 }
 
 
-Applicant.prototype.apply = function (node) {
-  var flag = 0;
+Applicant.prototype.apply = function (node, treeHandle) {
   Object.keys(this._rules).forEach(function (rule) {
     var _ruleInstance = this._rules[rule];
     if (_ruleInstance.check(node)) {
-      flag = 1;
-      node = _ruleInstance.update(node);
+      node = _ruleInstance.update(node, treeHandle);
     }
   }, this);
 
-  return { node: node, flag: flag };
+  return node;
 };

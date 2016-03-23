@@ -1,4 +1,5 @@
 module.exports = {
   'qunit': 'QUnit',
-  'module': 'module'
-}
+  'module': 'module',
+  'log': 'log'
+};
