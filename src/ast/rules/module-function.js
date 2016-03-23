@@ -15,7 +15,7 @@ function ModuleFunction() {
 
 ModuleFunction.prototype = {
   check: function (context) {
-    return isModule(context.node);
+    return isModule(context);
   },
 
   update: function (context) {

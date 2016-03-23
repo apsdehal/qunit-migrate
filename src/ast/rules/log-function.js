@@ -15,7 +15,7 @@ function LogFunction() {
 
 LogFunction.prototype = {
   check: function (context) {
-    return isLog(context.node);
+    return isLog(context);
   },
 
   update: function (context) {

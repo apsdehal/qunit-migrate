@@ -1,6 +1,7 @@
 var constants = require('../constants');
 
-module.exports = function (node) {
+module.exports = function (context) {
+  var node = context.node;
   return  node.type === "CallExpression" &&
           node.callee &&
           node.callee.type === "Identifier" &&
