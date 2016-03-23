@@ -33,7 +33,9 @@
   "homepage": "https://github.com/apsdehal/qunit-migrate",
   "dependencies": {
     "detect-indent": "^4.0.0",
+    "estraverse": "^4.1.0",
     "log-symbols": "^1.0.2",
-    "minimist": "^1.1.1"
+    "minimist": "^1.1.1",
+    "recast": "^0.11.3"
   }
 }
