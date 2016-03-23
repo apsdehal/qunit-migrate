@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = {
   getHyphenedNameFromCamelCase: function (rule) {
     return rule.replace(/([A-Z])/g,
@@ -13,4 +15,4 @@ module.exports = {
 
     return camelCasedName;
   }
-}
+};

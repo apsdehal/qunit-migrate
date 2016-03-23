@@ -1,22 +1,24 @@
 var path = require('path');
 var fs = require('fs');
 var utils = require('../utils');
+var assert = require('assert');
 
 module.exports = ConfigGenerator;
 
 
 function ConfigGenerator(config) {
-  this._rules = [];
+  this._rules = {};
 
   this.registerDefaultRules();
 
   var rulesLen = this._rules.length;
 
   Object.keys(this._rules).forEach(function (prop) {
+
     if (this._rules.hasOwnProperty(prop) && !config[prop]) {
       delete this._rules[prop];
     }
-  });
+  }, this);
 };
 
 
@@ -28,16 +30,16 @@ ConfigGenerator.prototype.registerDefaultRules = function () {
     var dir = path.join(__dirname, '../rules');
 
     fs.readdirSync(dir).forEach(function(rule) {
-        this.registerRule(
-            require(path.join(dir, rule))
-        );
+      this.registerRule(
+          require(path.join(dir, rule))
+      );
     }, this);
 };
 
 ConfigGenerator.prototype.registerRule = function (rule) {
     if (typeof rule === 'function') {
-        var RuleClass = rule;
-        rule = new RuleClass();
+      var RuleClass = rule;
+      rule = new RuleClass();
     }
 
     var optionName = rule.getOptionName();

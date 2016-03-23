@@ -1,25 +1,24 @@
-var defaultConfig = require('config/default-config');
-var Generator = require('config/generator');
+var defaultConfig = require('./config/default-config');
+var Generator = require('./config/generator');
 
 module.exports = Applicant;
 
 
 function Applicant() {
   this._generator = new Generator(defaultConfig);
-  this._rules = this._generator.getRules;
+  this._rules = this._generator._rules;
 }
 
 
 Applicant.prototype.apply = function (node) {
-  var _self = this;
-
+  var flag = 0;
   Object.keys(this._rules).forEach(function (rule) {
-    var _ruleInstance = _self._rules[rule];
-
+    var _ruleInstance = this._rules[rule];
     if (_ruleInstance.check(node)) {
+      flag = 1;
       node = _ruleInstance.update(node);
     }
-  });
+  }, this);
 
-  return node;
+  return { node: node, flag: flag };
 };

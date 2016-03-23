@@ -5,31 +5,24 @@ var utils = require('../utils');
 
 module.exports = QUnitPropertyBaseRule;
 
-function QUnitPropertyBaseRules(property) {
+function QUnitPropertyBaseRule(property, optionName) {
   this._property = property;
-  this._optionName = optionName || this._getOptionsNameFromFileName();
+  this._optionName =  optionName;
 };
 
 
 QUnitPropertyBaseRule.prototype = {
-  _check: function (node) {
+  check: function (node) {
     return node.type === 'Identifier' && node.name === this._property;
   },
 
-  _update: function (node) {
+  update: function (node) {
     var _self = this;
-    return
-
-    builder.memberExpression(
+    return builder.memberExpression(
       builder.identifier(constants.qunit),
-      builder.identifier(self._property),
+      builder.identifier(_self._property),
       false
     );
-  },
-
-  _getOptionsNameFromFileName: function () {
-    var ruleName = path.basename(__filename);
-    return utils.getCamelCaseFromHyphenedName(ruleName);
   },
 
   getOptionName: function () {

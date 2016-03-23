@@ -1,13 +1,14 @@
 var builder = require('recast').types.builders;
-var QunitPropertyBaseRule = require('./qunit-property-base');
+var QUnitPropertyBaseRule = require('./qunit-property-base');
 var constants = require('../constants');
+var optionNames = require('../option-names');
 
 module.exports = ModuleFunction;
 
 function ModuleFunction() {
-  QunitPropertyBaseRule.call(this, constants.module);
+  QUnitPropertyBaseRule.call(this, constants.module, optionNames.ModuleFunction);
 }
 
-ModuleFunction.prototype = Object.create(ModuleFunction.prototype);
+ModuleFunction.prototype = Object.create(QUnitPropertyBaseRule.prototype);
 
 ModuleFunction.constructor = ModuleFunction;
