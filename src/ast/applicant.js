@@ -10,13 +10,11 @@ function Applicant() {
 }
 
 
-Applicant.prototype.apply = function (node, treeHandle) {
+Applicant.prototype.apply = function (context) {
   Object.keys(this._rules).forEach(function (rule) {
     var _ruleInstance = this._rules[rule];
-    if (_ruleInstance.check(node)) {
-      node = _ruleInstance.update(node, treeHandle);
+    if (_ruleInstance.check(context)) {
+      node = _ruleInstance.update(context);
     }
   }, this);
-
-  return node;
 };

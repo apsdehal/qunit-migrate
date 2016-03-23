@@ -1,5 +1,5 @@
 var recast = require('recast');
-var estraverse = require('estraverse');
+var traverse = require('traverse');
 var applicant = require('./applicant');
 var builder = recast.types.builders;
 
@@ -9,11 +9,10 @@ var ast = recast.parse(code);
 
 var Applicant = new applicant();
 
-var newAst = estraverse.replace(ast.program, {
-  enter: function (node, parent) {
-    var applyResponse = Applicant.apply(node,this);
-    return applyResponse;
+traverse(ast).forEach( function (node) {
+  if (node) {
+    Applicant.apply(this);
   }
 });
 
-console.log(recast.print(newAst).code);
+console.log(recast.print(ast).code);

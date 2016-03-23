@@ -3,6 +3,7 @@ var constants = require('../constants');
 var path = require('path');
 var utils = require('../utils');
 var optionNames = require('../option-names');
+var isModule = require('../checks/is-module');
 
 module.exports = ModuleFunction;
 
@@ -13,21 +14,19 @@ function ModuleFunction() {
 
 
 ModuleFunction.prototype = {
-  check: function (node) {
-    return  node.type === "CallExpression" &&
-            node.callee &&
-            node.callee.type === "Identifier" &&
-            node.callee.name === this._property;
+  check: function (context) {
+    return isModule(context.node);
   },
 
-  update: function (node, treeHandle) {
+  update: function (context) {
     var _self = this;
+    var node = context.node;
     node.callee = builder.memberExpression(
       builder.identifier(constants.qunit),
       builder.identifier(_self._property),
       false
     );
-    return node;
+    context.update(node);
   },
 
   getOptionName: function () {
