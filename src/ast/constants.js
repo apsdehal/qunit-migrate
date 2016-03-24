@@ -7,5 +7,7 @@ module.exports = {
   'moduleBeforeEach': 'beforeEach',
   'moduleAfterEach': 'afterEach',
   'assert': 'assert',
-  'test': 'test'
+  'test': 'test',
+  'assertPush': 'push',
+  'thisObject': 'this'
 };
