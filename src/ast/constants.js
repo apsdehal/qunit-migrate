@@ -9,5 +9,18 @@ module.exports = {
   'assert': 'assert',
   'test': 'test',
   'assertPush': 'push',
-  'thisObject': 'this'
+  'thisObject': 'this',
+  'okAssertion':'ok',
+  'notOkAssertion': 'notOk',
+  'equalAssertion': 'equal',
+  'notEqualAssertion': 'notEqual',
+  'strictEqualAssertion': 'strictEqual',
+  'notStrictEqualAssertion': 'notStrictEqual',
+  'deepEqualAssertion': 'deepEqual',
+  'notDeepEqualAssertion': 'notDeepEqual',
+  'propEqualAssertion': 'propEqual',
+  'notPropEqualAssertion': 'notPropEqual',
+  'throwsAssertion': 'throws',
+  'raisesAssertion': 'raises',
+  'expectAssertion': 'expect'
 };

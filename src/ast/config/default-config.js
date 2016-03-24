@@ -7,5 +7,6 @@ module.exports = {
   logFunctionCallback: true,
   testFunction: true,
   testFunctionAssert: true,
-  assertPushFunction: true
+  assertPushFunction: true,
+  assertionFunction: true
 };

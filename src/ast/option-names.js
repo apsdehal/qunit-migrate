@@ -6,5 +6,6 @@ module.exports = {
   'LogFunctionCallback': 'logFunctionCallback',
   'TestFunction': 'testFunction',
   'TestFunctionAssert': 'testFunctionAssert',
-  'AssertPushFunction': 'assertPushFunction'
+  'AssertPushFunction': 'assertPushFunction',
+  'AssertionFunction': 'assertionFunction'
 };
