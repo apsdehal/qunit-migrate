@@ -2,8 +2,9 @@ var recast = require('recast');
 var traverse = require('traverse');
 var applicant = require('./applicant');
 var builder = recast.types.builders;
+var fs = require('fs');
 
-var code = 'var k = function () { module("Hi"); module("k"); log("uo"); }';
+var code = fs.readFileSync('./test.js')
 
 var ast = recast.parse(code);
 
