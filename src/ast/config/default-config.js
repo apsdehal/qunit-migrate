@@ -4,5 +4,6 @@ module.exports = {
   moduleFunctionParams: true,
   moduleFunctionAssert: true,
   moduleFunctionParamsValue: true,
-  logFunctionCallback: true
+  logFunctionCallback: true,
+  testFunction: true
 };

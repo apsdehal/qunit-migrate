@@ -3,5 +3,6 @@ module.exports = {
   'LogFunction': 'logFunction',
   'ModuleFunctionParams': 'moduleFunctionParams',
   'ModuleFunctionParamsValue': 'moduleFunctionParamsValue',
-  'LogFunctionCallback': 'logFunctionCallback'
+  'LogFunctionCallback': 'logFunctionCallback',
+  'TestFunction': 'testFunction'
 }
