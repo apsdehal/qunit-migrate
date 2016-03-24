@@ -1,5 +1,6 @@
 module.exports = {
   'ModuleFunction': 'moduleFunction',
   'LogFunction': 'logFunction',
-  'ModuleFunctionParams': 'moduleFunctionParams'
+  'ModuleFunctionParams': 'moduleFunctionParams',
+  'ModuleFunctionParamsValue': 'moduleFunctionParamsValue'
 }

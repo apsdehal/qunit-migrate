@@ -5,5 +5,6 @@ module.exports = {
   'moduleSetup': 'setup',
   'moduleTeardown': 'teardown',
   'moduleBeforeEach': 'beforeEach',
-  'moduleAfterEach': 'afterEach'
+  'moduleAfterEach': 'afterEach',
+  'assert': 'assert'
 };

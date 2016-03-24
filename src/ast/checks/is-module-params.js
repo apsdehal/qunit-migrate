@@ -5,6 +5,10 @@ var nameMap = {};
 nameMap[constants['moduleSetup']] = constants.moduleBeforeEach;
 nameMap[constants['moduleTeardown']] = constants.moduleAfterEach;
 
+// For assert change
+nameMap[constants['moduleAfterEach']] = constants.moduleAfterEach;
+nameMap[constants['moduleBeforeEach']] = constants.moduleBeforeEach;
+
 module.exports = function (context) {
   var node = context.node;
   var parent = context.parent;

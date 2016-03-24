@@ -14,5 +14,15 @@ module.exports = {
     });
 
     return camelCasedName;
+  },
+
+  checkIfNodeParamsContain: function (node, param) {
+    var len = node.params.length;
+    for (var i = 0; i < len; i++) {
+      if (node.params[i].name === param) {
+        return true;
+      }
+    }
+    return false;
   }
 };
