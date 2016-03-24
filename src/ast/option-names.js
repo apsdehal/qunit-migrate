@@ -4,5 +4,6 @@ module.exports = {
   'ModuleFunctionParams': 'moduleFunctionParams',
   'ModuleFunctionParamsValue': 'moduleFunctionParamsValue',
   'LogFunctionCallback': 'logFunctionCallback',
-  'TestFunction': 'testFunction'
+  'TestFunction': 'testFunction',
+  'TestFunctionAssert': 'testFunctionAssert'
 }
