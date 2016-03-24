@@ -3,5 +3,6 @@ module.exports = {
   logFunction: true,
   moduleFunctionParams: true,
   moduleFunctionAssert: true,
-  moduleFunctionParamsValue: true
+  moduleFunctionParamsValue: true,
+  logFunctionCallback: true
 };

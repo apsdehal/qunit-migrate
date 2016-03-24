@@ -2,8 +2,11 @@ var constants = require('../constants');
 
 module.exports = function (context) {
   var node = context.node;
-  return  node.type === "CallExpression" &&
-          node.callee &&
-          node.callee.type === "Identifier" &&
-          node.callee.name === constants.log;
+  var parent = context.parent;
+
+  return  node.type === 'Identifier' &&
+          node.name === constants.log &&
+          parent &&
+          parent.node &&
+          parent.node.type !== 'MemberExpression';
 }

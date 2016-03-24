@@ -25,5 +25,5 @@ module.exports = function (context) {
          parent.parent.parent.parent &&
          parent.parent.parent.parent.parent &&
          parent.parent.parent.parent.parent.node &&
-         isQUnitModule(parent.parent.parent.parent.parent.node);
+         isQUnitModule({ node: parent.parent.parent.parent.parent.node });
 };

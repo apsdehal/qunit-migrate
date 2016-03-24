@@ -3,30 +3,28 @@ var constants = require('../constants');
 var path = require('path');
 var utils = require('../utils');
 var optionNames = require('../option-names');
-var isLog = require('../checks/is-log');
+var isLogCallbackExpression = require('../checks/is-log-callback-expression');
 
-module.exports = LogFunction;
+module.exports = LogFunctionCallback;
 
-function LogFunction() {
+function LogFunctionCallback() {
   this._property = constants.log;
-  this._optionName =  optionNames.LogFunction;
+  this._optionName =  optionNames.LogFunctionCallback;
 };
 
 
-LogFunction.prototype = {
+LogFunctionCallback.prototype = {
   check: function (context) {
-    return isLog(context);
+    return isLogCallbackExpression(context);
   },
 
   update: function (context) {
     var node = context.node;
     var _self = this;
+    node = builder.callExpression(
+        node.left,
+        [node.right]);
 
-    node = builder.memberExpression(
-      builder.identifier(constants.qunit),
-      builder.identifier(_self._property),
-      false
-    );
     context.update(node);
   },
 
