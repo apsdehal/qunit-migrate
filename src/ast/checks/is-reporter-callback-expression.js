@@ -1,5 +1,5 @@
 var constants = require('../constants');
-var isQUnitLog = require('./is-qunit-log');
+var isQUnitReporter = require('./is-qunit-reporter');
 
 module.exports = function (context) {
   var node = context.node;
@@ -9,5 +9,5 @@ module.exports = function (context) {
          node.right &&
          node.right.type === 'FunctionExpression' &&
          node.left &&
-         isQUnitLog({ node: node.left, parent: parent });
+         isQUnitReporter({ node: node.left, parent: parent });
 }

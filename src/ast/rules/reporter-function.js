@@ -3,28 +3,26 @@ var constants = require('../constants');
 var path = require('path');
 var utils = require('../utils');
 var optionNames = require('../option-names');
-var isLog = require('../checks/is-log');
+var isReporter = require('../checks/is-reporter');
 
-module.exports = LogFunction;
+module.exports = ReporterFunction;
 
-function LogFunction() {
-  this._property = constants.log;
-  this._optionName =  optionNames.LogFunction;
+function ReporterFunction() {
+  this._optionName =  optionNames.ReporterFunction;
 };
 
 
-LogFunction.prototype = {
+ReporterFunction.prototype = {
   check: function (context) {
-    return isLog(context);
+    return isReporter(context);
   },
 
   update: function (context) {
     var node = context.node;
-    var _self = this;
 
     node = builder.memberExpression(
       builder.identifier(constants.qunit),
-      builder.identifier(_self._property),
+      builder.identifier(node.name),
       false
     );
     context.update(node);

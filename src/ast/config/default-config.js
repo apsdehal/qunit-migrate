@@ -1,10 +1,10 @@
 module.exports = {
   moduleFunction: true,
-  logFunction: true,
+  reporterFunction: true,
   moduleFunctionParams: true,
   moduleFunctionAssert: true,
   moduleFunctionParamsValue: true,
-  logFunctionCallback: true,
+  reporterFunctionCallback: true,
   testFunction: true,
   testFunctionAssert: true,
   assertPushFunction: true,

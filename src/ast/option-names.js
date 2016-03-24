@@ -1,9 +1,9 @@
 module.exports = {
   'ModuleFunction': 'moduleFunction',
-  'LogFunction': 'logFunction',
+  'ReporterFunction': 'reporterFunction',
   'ModuleFunctionParams': 'moduleFunctionParams',
   'ModuleFunctionParamsValue': 'moduleFunctionParamsValue',
-  'LogFunctionCallback': 'logFunctionCallback',
+  'ReporterFunctionCallback': 'reporterFunctionCallback',
   'TestFunction': 'testFunction',
   'TestFunctionAssert': 'testFunctionAssert',
   'AssertPushFunction': 'assertPushFunction',

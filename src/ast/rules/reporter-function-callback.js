@@ -3,19 +3,19 @@ var constants = require('../constants');
 var path = require('path');
 var utils = require('../utils');
 var optionNames = require('../option-names');
-var isLogCallbackExpression = require('../checks/is-log-callback-expression');
+var isReporterCallbackExpression = require('../checks/is-reporter-callback-expression');
 
-module.exports = LogFunctionCallback;
+module.exports = ReporterFunctionCallback;
 
-function LogFunctionCallback() {
+function ReporterFunctionCallback() {
   this._property = constants.log;
-  this._optionName =  optionNames.LogFunctionCallback;
+  this._optionName =  optionNames.ReporterFunctionCallback;
 };
 
 
-LogFunctionCallback.prototype = {
+ReporterFunctionCallback.prototype = {
   check: function (context) {
-    return isLogCallbackExpression(context);
+    return isReporterCallbackExpression(context);
   },
 
   update: function (context) {
