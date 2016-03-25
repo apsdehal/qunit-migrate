@@ -1,0 +1,26 @@
+QUnit.begin();
+QUnit.begin();
+QUnit.done();
+QUnit.done();
+QUnit.log();
+QUnit.log();
+QUnit.testStart();
+QUnit.testStart();
+QUnit.testDone();
+QUnit.testDone();
+QUnit.moduleStart();
+QUnit.moduleStart();
+QUnit.moduleDone();
+QUnit.moduleDone();
+QUnit.module();
+QUnit.module();
+QUnit.start();
+QUnit.start();
+// These won't be changed
+QUnit.begin();
+QUnit.done();
+QUnit.log();
+QUnit.testStart();
+QUnit.testDone();
+QUnit.moduleStart();
+QUnit.moduleDone();

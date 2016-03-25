@@ -16,8 +16,6 @@ module();
 module();
 start();
 start();
-stop();
-stop();
 // These won't be changed
 QUnit.begin();
 QUnit.done();
