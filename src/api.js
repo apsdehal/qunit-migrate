@@ -13,10 +13,14 @@ module.exports = function (config) {
   extend(config, {
     files: config.files || [],
     write: config.write || false,
-    jscs: config.jscs || true,
+    jscs: config.jscs,
     parser: config.parser || 'ast',
     preset: config.preset || 'jquery'
   });
+
+  if (typeof config.jscs === 'undefined') {
+    config.jscs = true;
+  }
 
   try {
     parser = require('./' + config.parser);
@@ -38,12 +42,12 @@ module.exports = function (config) {
   if (config.jscs) {
     checker = new Checker();
     var jscsConfig = config.jscsConfig || {};
-
     extend(jscsConfig, {
       preset: config.preset,
       fix: true
     });
 
+    checker.registerDefaultRules();
     checker.configure(jscsConfig);
   }
 
@@ -63,15 +67,17 @@ module.exports = function (config) {
 
         if (config.jscs) {
           parsedCode = checker.fixString(parsedCode);
+          parsedCode = parsedCode.output;
         }
 
         if (config.write) {
-
+          fs.writeFileSync(file, parsedCode);
         } else {
           console.log(logSymbols.success +
             ' ' + chalk.bold.green('Output for %s:\n'), file);
-          console.log(parsedCode.output);
+          console.log(parsedCode);
         }
+
         passed.push(file);
       } catch (e) {
         console.log(logSymbols.error + ' ' +
