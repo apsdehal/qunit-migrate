@@ -30,5 +30,10 @@ module.exports = {
   'notPropEqualAssertion': 'notPropEqual',
   'throwsAssertion': 'throws',
   'raisesAssertion': 'raises',
-  'expectAssertion': 'expect'
+  'expectAssertion': 'expect',
+  'start': 'start',
+  'stop': 'stop',
+  'varDeclarator': 'var',
+  'readyExpression': 'ready',
+  'asyncExpression': 'async'
 };
