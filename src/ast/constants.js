@@ -35,5 +35,6 @@ module.exports = {
   'stop': 'stop',
   'varDeclarator': 'var',
   'readyExpression': 'ready',
-  'asyncExpression': 'async'
+  'asyncExpression': 'async',
+  'init': 'init'
 };

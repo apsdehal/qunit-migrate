@@ -8,5 +8,7 @@ module.exports = {
   'TestFunctionAssert': 'testFunctionAssert',
   'AssertPushFunction': 'assertPushFunction',
   'AssertionFunction': 'assertionFunction',
-  'AsyncTestFunction': 'asyncTestFunction'
+  'AsyncTestFunction': 'asyncTestFunction',
+  'StartFunction': 'startFunction',
+  'InitFunction': 'initFunction'
 };

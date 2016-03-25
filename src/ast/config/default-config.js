@@ -9,5 +9,7 @@ module.exports = {
   testFunctionAssert: true,
   assertPushFunction: true,
   assertionFunction: true,
-  asyncTestFunction: true
+  asyncTestFunction: true,
+  startFunction: true,
+  initFunction: true
 };
