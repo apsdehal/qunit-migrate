@@ -15,6 +15,7 @@ module.exports = {
   'moduleAfterEach': 'afterEach',
   'assert': 'assert',
   'test': 'test',
+  'asyncTest': 'asyncTest',
   'assertPush': 'push',
   'thisObject': 'this',
   'okAssertion':'ok',

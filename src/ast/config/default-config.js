@@ -8,5 +8,6 @@ module.exports = {
   testFunction: true,
   testFunctionAssert: true,
   assertPushFunction: true,
-  assertionFunction: true
+  assertionFunction: true,
+  asyncTestFunction: true
 };

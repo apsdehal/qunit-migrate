@@ -7,5 +7,6 @@ module.exports = {
   'TestFunction': 'testFunction',
   'TestFunctionAssert': 'testFunctionAssert',
   'AssertPushFunction': 'assertPushFunction',
-  'AssertionFunction': 'assertionFunction'
+  'AssertionFunction': 'assertionFunction',
+  'AsyncTestFunction': 'asyncTestFunction'
 };
