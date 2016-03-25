@@ -3,7 +3,7 @@ var constants = require('../constants');
 var path = require('path');
 var utils = require('../utils');
 var optionNames = require('../option-names');
-var isAsyncTest = require('../checks/is-async-test');
+var isQUnitAsyncTest = require('../checks/is-qunit-async-test');
 var isQUnitStart = require('../checks/is-qunit-start');
 var isQUnitStop = require('../checks/is-qunit-stop');
 
@@ -20,7 +20,7 @@ function AsyncTestFunction() {
 
 AsyncTestFunction.prototype = {
   check: function (context) {
-    return isAsyncTest(context);
+    return isQUnitAsyncTest(context);
   },
 
   update: function (context) {
@@ -34,11 +34,11 @@ AsyncTestFunction.prototype = {
     );
 
     if (node.arguments &&
-        node.arguments[0] &&
-        node.arguments[0].body &&
-        node.arguments[0].body.body) {
+        node.arguments[1] &&
+        node.arguments[1].body &&
+        node.arguments[1].body.body) {
 
-      var statements = node.arguments[0].body.body;
+      var statements = node.arguments[1].body.body;
       var len = statements.length;
       var stops = 0;
       var starts = 0;
@@ -58,8 +58,6 @@ AsyncTestFunction.prototype = {
             starts++;
           }
         }
-
-        node.arguments[0].body.body = statements;
       }
     }
 
