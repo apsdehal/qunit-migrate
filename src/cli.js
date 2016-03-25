@@ -1,10 +1,17 @@
 var program = require('commander');
-var glob = require('glob');
+var fs = require('fs');
+var chalk = require('chalk');
+var extend = require('extend');
+var api = require('./api');
+var exit = require('exit');
+var logSymbols = require('log-symbols');
 
 program
   .version('2.0.0')
-  .usage('[options] <file ...>\n\n  QUnit Migrate: A tool to migrate your files to QUnit 2.0 API')
+  .usage(
+    '[options] <file ...>\n\n  QUnit Migrate: A tool to migrate your files to QUnit 2.0 API')
   .option('-c, --config <path>', 'Config file for qunit-migrate')
+  .option('-P, --parser <regex|ast>', 'Parser to be used for parsing, Default: ast')
   .option('-w, --write', 'Pass if parsed files should be overwritten. Default: false')
   .option('-p, --preset <string>', 'Preset rule for jscs config. Default: jquery')
   .option('-j, --no-jscs', 'Pass if jscs fix should not be applied. Default: true')
@@ -22,8 +29,30 @@ program.on('--help', function(){
 
 program.parse(process.argv);
 
-console.log(program.config);
-console.log(program.write);
-console.log(program.preset);
-console.log(program.jscs);
-console.log(program.args);
+var config;
+
+if (program.config) {
+  try {
+    config = fs.readfileSync(program.config);
+  } catch (e) {
+    console.log(logSymbols.error + ' ' +
+      chalk.bold.red('Failed to read config file passed: %s'),
+      program.config);
+    console.log(e.toString());
+    exit();
+  }
+
+  config = JSON.parse(config);
+}
+
+config = config || {};
+
+extend(config, {
+  files: program.args.join(','),
+  write: program.write,
+  jscs: program.jscs,
+  parser: program.parser,
+  preset: program.preset
+});
+
+api(config);
