@@ -10,5 +10,6 @@ module.exports = {
   'AssertionFunction': 'assertionFunction',
   'AsyncTestFunction': 'asyncTestFunction',
   'StartFunction': 'startFunction',
-  'InitFunction': 'initFunction'
+  'InitFunction': 'initFunction',
+  'JsDumpFunction': 'jsDumpFunction'
 };

@@ -36,5 +36,7 @@ module.exports = {
   'varDeclarator': 'var',
   'readyExpression': 'ready',
   'asyncExpression': 'async',
-  'init': 'init'
+  'init': 'init',
+  'jsdumpExpression': 'jsDump',
+  'dumpExpression': 'dump'
 };

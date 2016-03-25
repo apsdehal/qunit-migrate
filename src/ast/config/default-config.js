@@ -11,5 +11,6 @@ module.exports = {
   assertionFunction: true,
   asyncTestFunction: true,
   startFunction: true,
-  initFunction: true
+  initFunction: true,
+  jsDumpFunction: true
 };
