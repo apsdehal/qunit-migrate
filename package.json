@@ -1,9 +1,9 @@
 {
   "name": "qunit-migrate",
-  "version": "1.2.0",
-  "bin": "src/index.js",
+  "version": "2.0.0",
+  "bin": "bin/qunit-migrate",
   "description": "Migrate old QUnit code to 2.x",
-  "main": "src/main.js",
+  "main": "src/api.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha -u bdd tests/main.js"
   },
