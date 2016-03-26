@@ -33,7 +33,7 @@ var config;
 
 if (program.config) {
   try {
-    config = fs.readfileSync(program.config);
+    config = fs.readFileSync(program.config);
   } catch (e) {
     console.log(logSymbols.error + ' ' +
       chalk.bold.red('Failed to read config file passed: %s'),
@@ -48,7 +48,7 @@ if (program.config) {
 config = config || {};
 
 extend(config, {
-  files: program.args.join(','),
+  files: program.args,
   write: program.write,
   jscs: program.jscs,
   parser: program.parser,

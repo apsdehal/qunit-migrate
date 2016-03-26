@@ -51,7 +51,14 @@ module.exports = function (config) {
     checker.configure(jscsConfig);
   }
 
-  glob(config.files, function (error, files) {
+  if (Array.isArray(config.files)) {
+    parseFiles(null, config.files);
+  } else {
+    glob(config.files, parseFiles);
+  }
+
+
+  function parseFiles(error, files) {
     if (error) {
       console.log(logSymbols.error, chalk.bold.red('Error in Globbing pattern!'));
       console.log(error.toString());
@@ -101,6 +108,5 @@ module.exports = function (config) {
         console.log(logSymbols.success, chalk.green(pass));
       });
     }
-  });
-
-}
+  }
+};
