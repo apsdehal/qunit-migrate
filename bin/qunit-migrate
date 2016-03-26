@@ -1,8 +1,9 @@
+#!/usr/bin/env node
 var program = require('commander');
 var fs = require('fs');
 var chalk = require('chalk');
 var extend = require('extend');
-var api = require('./api');
+var api = require('../src/cli-api');
 var exit = require('exit');
 var logSymbols = require('log-symbols');
 
