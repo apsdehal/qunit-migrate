@@ -51,8 +51,9 @@ Migrate old QUnit code to 2.x.
 
 Various rules can be toggled through use of custom config which can be passed via `-c` option.
 
-Default config file can be found [here](https://github.com/apsdehal/qunit-migrate/blob/master/examples/default.config.json)
-Sample config file can be found [here](https://github.com/apsdehal/qunit-migrate/blob/master/examples/sample.config.json)
+[Default config file](examples/default.config.json)
+
+[Sample config file](examples/sample.config.json)
 
 Config rules have been defined in [wiki]()
 
