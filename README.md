@@ -83,14 +83,14 @@ ssyncTest( "should allow String locale", function() {
 });
 });
 ```
-> $ qunit-migrate "file1" -d "lib/qunit" -q -w
+> $ qunit-migrate "file1.js" -w
 
 to
 
 ```js
 // Taken directly from jquery-globalize
 // file1.js
-define( [ "lib/qunit",
+define( [ "qunit",
   "cldr",
   "src/core",
   "json!cldr-data/supplemental/likelySubtags.json",

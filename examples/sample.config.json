@@ -24,7 +24,7 @@
     "validateIndentation": "\t"
   },
 
-  "parser": "ast",
+  "parser": "regex",
   "write": false,
   "jscs": true,
 }
