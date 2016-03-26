@@ -1,0 +1,30 @@
+{
+  "parserConfig": {
+    "moduleFunction": true,
+    "reporterFunction": false,
+    "moduleFunctionParams": true,
+    "moduleFunctionAssert": true,
+    "moduleFunctionParamsValue": true,
+    "reporterFunctionCallback": true,
+    "testFunction": true,
+    "testFunctionAssert": true,
+    "assertPushFunction": true,
+    "assertionFunction": true,
+    "asyncTestFunction": false,
+    "startFunction": false,
+    "initFunction": true,
+    "jsDumpFunction": false
+  },
+
+  "jscsConfig": {
+    "fix": true,
+    "preset": "jquery",
+    "requireCurlyBraces": false,
+    "disallowMultipleLineBreaks": false,
+    "validateIndentation": "\t"
+  },
+
+  "parser": "ast",
+  "write": false,
+  "jscs": true,
+}
