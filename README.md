@@ -55,7 +55,7 @@ Various rules can be toggled through use of custom config which can be passed vi
 
 [Sample config file](examples/sample.config.json)
 
-Config rules have been defined in [wiki]()
+[Config Rules](examples)
 
 ## Example:
 
@@ -122,6 +122,18 @@ var modifiedDataRegex = qmRegex(data); // Fixed code through AST
 ```
 
 *Information: `qunit-migrate` api doesn't fix source with jscs*
+
+## Accuracy & Limitations
+
+QUnit migrate tries its best to upgrade your API, but there are still some limitations. 
+
+For e.g. 
+- If you are encapsulating some of your logic in a function and using assertions in that, it is 
+your responsibility to pass assert into function parameters. API of qunit-migrate can also be upgraded to do this, but it doesn't support it at the moment
+- There might be issues with require definitions some time if they are not in the start and encapsulated somewhere.
+- QUnit.reset is not supported as of now
+
+*All these are fixable through AST. _Pull requests_ are welcome* 
 
 ## License
 
