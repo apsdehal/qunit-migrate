@@ -1,16 +1,17 @@
 module.exports = {
-  moduleFunction: true,
-  reporterFunction: true,
-  moduleFunctionParams: true,
-  moduleFunctionAssert: true,
-  moduleFunctionParamsValue: true,
-  reporterFunctionCallback: true,
-  testFunction: true,
-  testFunctionAssert: true,
-  assertPushFunction: true,
   assertionFunction: true,
+  assertPushFunction: true,
   asyncTestFunction: true,
-  startFunction: true,
+  defineFunction: true,
   initFunction: true,
-  jsDumpFunction: true
+  jsDumpFunction: true,
+  moduleFunction: true,
+  moduleFunctionAssert: true,
+  moduleFunctionParams: true,
+  moduleFunctionParamsValue: true,
+  reporterFunction: true,
+  reporterFunctionCallback: true,
+  startFunction: true,
+  testFunction: true,
+  testFunctionAssert: true
 };

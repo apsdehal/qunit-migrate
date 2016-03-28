@@ -1,15 +1,16 @@
 module.exports = {
+  'AssertionFunction': 'assertionFunction',
+  'AssertPushFunction': 'assertPushFunction',
+  'AsyncTestFunction': 'asyncTestFunction',
+  'DefineFunction': 'defineFunction',
+  'InitFunction': 'initFunction',
+  'JsDumpFunction': 'jsDumpFunction',
   'ModuleFunction': 'moduleFunction',
-  'ReporterFunction': 'reporterFunction',
   'ModuleFunctionParams': 'moduleFunctionParams',
   'ModuleFunctionParamsValue': 'moduleFunctionParamsValue',
+  'ReporterFunction': 'reporterFunction',
   'ReporterFunctionCallback': 'reporterFunctionCallback',
-  'TestFunction': 'testFunction',
-  'TestFunctionAssert': 'testFunctionAssert',
-  'AssertPushFunction': 'assertPushFunction',
-  'AssertionFunction': 'assertionFunction',
-  'AsyncTestFunction': 'asyncTestFunction',
   'StartFunction': 'startFunction',
-  'InitFunction': 'initFunction',
-  'JsDumpFunction': 'jsDumpFunction'
+  'TestFunction': 'testFunction',
+  'TestFunctionAssert': 'testFunctionAssert'
 };
