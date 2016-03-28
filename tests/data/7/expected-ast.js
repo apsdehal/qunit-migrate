@@ -1,3 +1,3 @@
-( function ( $ ) {
+(function(QUnit, $) {
 
-})( jQuery );
+})(QUnit, jQuery);

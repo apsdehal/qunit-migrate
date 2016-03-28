@@ -3,7 +3,7 @@
  * Taken directly from jquery-mobile
  */
 
-( function( $ ) {
+(function(QUnit, $) {
 var libName = "core",
 	setGradeA = function( value, version ) {
 		$.support.mediaquery = value;
@@ -190,4 +190,4 @@ QUnit.test( "test that $.fn.jqmHijackable works", function(assert) {
 
 	$.mobile.ignoreContentEnabled = false;
 } );
-} )( jQuery );
+})(QUnit, jQuery);
