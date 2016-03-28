@@ -7,7 +7,6 @@ module.exports = {
   initFunction: true,
   jsDumpFunction: true,
   moduleFunction: true,
-  moduleFunctionAssert: true,
   moduleFunctionParams: true,
   moduleFunctionParamsValue: true,
   reporterFunction: true,
