@@ -3,3 +3,11 @@ define([
 ], function ( $ ) {
 
 });
+
+define("module", function ($) {
+
+});
+
+define(function ($) {
+
+});

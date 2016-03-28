@@ -1,5 +1,3 @@
-define('myModule', [
-	'jquery'
-], function ( $ ) {
+define('myModule', ["qunit", 'jquery'], function(QUnit, $) {
 
 });

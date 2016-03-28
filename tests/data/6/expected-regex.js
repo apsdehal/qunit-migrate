@@ -3,3 +3,11 @@ define( [ 'qunit',
 ], function( QUnit, $ ) {
 
 });
+
+define("module", function ($) {
+
+});
+
+define(function ($) {
+
+});

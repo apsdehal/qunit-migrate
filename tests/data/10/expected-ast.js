@@ -1,11 +1,11 @@
 // Taken directly from jquery-globalize
 define([
-	"cldr",
-	"src/core",
-	"json!cldr-data/supplemental/likelySubtags.json",
-
-	"cldr/event"
-], function( Cldr, Globalize, likelySubtags ) {
+    "qunit",
+    "cldr",
+    "src/core",
+    "json!cldr-data/supplemental/likelySubtags.json",
+    "cldr/event"
+], function(QUnit, Cldr, Globalize, likelySubtags) {
 
 Cldr.load( likelySubtags );
 
