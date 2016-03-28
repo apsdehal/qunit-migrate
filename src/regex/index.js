@@ -1,11 +1,15 @@
 var main = require('./main');
-var options =  {
+var extend = require('extend');
+var defaultOptions =  {
 	definitions: false,
   quotes: '"'
 };
 
-module.exports = function (data) {
-	var migrated = main(data.toString(), options);
+module.exports = function (data, options) {
+  var regexOptions = options.parserConfig.regex || {};
+
+  var finalOptions = extend(options, regexOptions);
+	var migrated = main(data.toString(), finalOptions);
   return migrated;
 }
 

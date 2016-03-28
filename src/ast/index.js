@@ -3,10 +3,9 @@ var traverse = require('traverse');
 var applicant = require('./applicant');
 var builder = recast.types.builders;
 
-module.exports = function (code) {
+module.exports = function (code, options) {
   var ast = recast.parse(code);
-
-  var Applicant = new applicant();
+  var Applicant = new applicant(options.parserConfig.ast);
 
   traverse(ast).forEach( function (node) {
     if (node) {

@@ -43,7 +43,16 @@ if (program.config) {
     exit();
   }
 
-  config = JSON.parse(config);
+  try {
+    config = JSON.parse(config);
+  } catch (e) {
+    console.log(logSymbols.error + ' ' +
+      chalk.bold.red('Failed to parse JSON in file: %s'),
+      program.config);
+    console.log(e.toString());
+    exit();
+
+  }
 }
 
 config = config || {};

@@ -1,19 +1,25 @@
 {
   "parserConfig": {
-    "moduleFunction": true,
-    "reporterFunction": true,
-    "moduleFunctionParams": true,
-    "moduleFunctionAssert": true,
-    "moduleFunctionParamsValue": true,
-    "reporterFunctionCallback": true,
-    "testFunction": true,
-    "testFunctionAssert": true,
-    "assertPushFunction": true,
-    "assertionFunction": true,
-    "asyncTestFunction": true,
-    "startFunction": true,
-    "initFunction": true,
-    "jsDumpFunction": true
+    "ast": {
+      "moduleFunction": true,
+      "reporterFunction": true,
+      "moduleFunctionParams": true,
+      "moduleFunctionAssert": true,
+      "moduleFunctionParamsValue": true,
+      "reporterFunctionCallback": true,
+      "testFunction": true,
+      "testFunctionAssert": true,
+      "assertPushFunction": true,
+      "assertionFunction": true,
+      "asyncTestFunction": true,
+      "startFunction": true,
+      "initFunction": true,
+      "jsDumpFunction": true
+    },
+    "regex": {
+      "definitions": false,
+      "quotes": "\""
+    }
   },
 
   "jscsConfig": {
@@ -23,5 +29,5 @@
 
   "parser": "ast",
   "write": false,
-  "jscs": true,
+  "jscs": true
 }

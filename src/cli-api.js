@@ -15,7 +15,8 @@ module.exports = function (config) {
     write: config.write || false,
     jscs: config.jscs,
     parser: config.parser || 'ast',
-    preset: config.preset || 'jquery'
+    preset: config.preset || 'jquery',
+    parserConfig: config.parserConfig || {}
   });
 
   if (typeof config.jscs === 'undefined') {
@@ -70,7 +71,7 @@ module.exports = function (config) {
     files.forEach(function (file) {
       try {
         data = fs.readFileSync(file);
-        parsedCode = parser(data);
+        parsedCode = parser(data, config);
 
         if (config.jscs) {
           parsedCode = checker.fixString(parsedCode);
