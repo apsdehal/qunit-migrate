@@ -4,6 +4,8 @@ var applicant = require('./applicant');
 var builder = recast.types.builders;
 
 module.exports = function (code, options) {
+  options = options || {};
+  options.parserConfig = options.parserConfig || {};
   var ast = recast.parse(code);
   var Applicant = new applicant(options.parserConfig.ast);
 
