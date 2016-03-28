@@ -1,4 +1,5 @@
 module.exports = {
+  'AnonymousFunction': 'anonymousFunction',
   'AssertionFunction': 'assertionFunction',
   'AssertPushFunction': 'assertPushFunction',
   'AsyncTestFunction': 'asyncTestFunction',

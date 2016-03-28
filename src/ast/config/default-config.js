@@ -1,4 +1,5 @@
 module.exports = {
+  anonymousFunction: true,
   assertionFunction: true,
   assertPushFunction: true,
   asyncTestFunction: true,
