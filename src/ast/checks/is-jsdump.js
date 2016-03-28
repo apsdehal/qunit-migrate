@@ -4,9 +4,6 @@ module.exports = function (context) {
   var node = context.node;
   var parent = context.parent;
 
-  if (node.property && node.property.name === constants.jsdumpExpression) {
-    debugger;
-  }
   return (node.type === 'MemberExpression' &&
          node.object.type === 'Identifier' &&
          node.object.name === constants.qunit &&
