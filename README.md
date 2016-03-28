@@ -55,7 +55,7 @@ Various rules can be toggled through use of custom config which can be passed vi
 
 [Sample config file](examples/sample.config.json)
 
-[Config Rules](examples)
+[Config Rules](examples/rules.md)
 
 ## Example:
 
@@ -90,7 +90,8 @@ to
 ```js
 // Taken directly from jquery-globalize
 // file1.js
-define( [ "qunit",
+define( [ 
+  "qunit",
   "cldr",
   "src/core",
   "json!cldr-data/supplemental/likelySubtags.json",
