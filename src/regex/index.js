@@ -6,6 +6,8 @@ var defaultOptions =  {
 };
 
 module.exports = function (data, options) {
+  options = options || {};
+  options.parserConfig = options.parserConfig || {};
   var regexOptions = options.parserConfig.regex || {};
 
   var finalOptions = extend(options, regexOptions);
