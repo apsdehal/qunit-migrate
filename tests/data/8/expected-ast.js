@@ -29,8 +29,9 @@ QUnit.module( libName, {
 
 $.testHelper.excludeFileProtocol( function() {
 	QUnit.test( "grade A browser either supports media queries or is IE 7+", function(assert) {
-		setGradeA( false, 6 );
-		$.testHelper.deferredSequence( [
+        var ready = assert.async();
+        setGradeA( false, 6 );
+        $.testHelper.deferredSequence( [
 			function() {
 				return $.testHelper.reloadModule( libName );
 			},
@@ -46,10 +47,10 @@ $.testHelper.excludeFileProtocol( function() {
 
 			function() {
 				assert.ok( $.mobile.gradeA() );
-				QUnit.start();
+				ready();
 			}
 		] );
-	} );
+    } );
 } );
 
 function clearNSNormalizeDictionary() {
