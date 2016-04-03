@@ -52,12 +52,16 @@ AsyncTestFunction.prototype = {
           if (isQUnitStop({node: expressionStatement.expression})) {
             statements[i] = this.getAssertAsyncDeclaration(stops);
             stops++;
-          } else if (stops > starts &&
-            isQUnitStart({node: expressionStatement.expression})) {
+          } else if (isQUnitStart({node: expressionStatement.expression})) {
             statements[i] = this.getDoneCallExpression(starts);
             starts++;
           }
         }
+      }
+
+      while (stops < starts) {
+        statements.unshift(this.getAssertAsyncDeclaration(stops));
+        stops++;
       }
     }
 
