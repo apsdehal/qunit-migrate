@@ -1,6 +1,7 @@
 // Async tests
 QUnit.test("An async test", function(assert) {
-	QUnit.start();
+    var ready = assert.async();
+    ready();
 });
 
 QUnit.test("A test", function(assert) {
