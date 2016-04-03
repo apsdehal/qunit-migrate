@@ -6,6 +6,7 @@ var optionNames = require('../option-names');
 var isQUnitAsyncTest = require('../checks/is-qunit-async-test');
 var isQUnitStart = require('../checks/is-qunit-start');
 var isQUnitStop = require('../checks/is-qunit-stop');
+var traverse = require('traverse');
 
 module.exports = AsyncTestFunction;
 
@@ -44,20 +45,23 @@ AsyncTestFunction.prototype = {
       var starts = 0;
       var expressionStatement;
 
-      for(var i = 0; i < len; i++) {
-        expressionStatement = statements[i];
+      // Traverse again because there might be QUnit.start()
+      // hidden in depths of this function
+      traverse(node).forEach(function (blockNode) {
+        if (blockNode) {
+          if (blockNode.type === 'ExpressionStatement') {
 
-        if (expressionStatement.type === 'ExpressionStatement') {
-
-          if (isQUnitStop({node: expressionStatement.expression})) {
-            statements[i] = this.getAssertAsyncDeclaration(stops);
-            stops++;
-          } else if (isQUnitStart({node: expressionStatement.expression})) {
-            statements[i] = this.getDoneCallExpression(starts);
-            starts++;
+            if (isQUnitStop({node: blockNode.expression})) {
+              blockNode = _self.getAssertAsyncDeclaration(stops);
+              stops++;
+            } else if (isQUnitStart({node: blockNode.expression})) {
+              blockNode = _self.getDoneCallExpression(starts);
+              starts++;
+            }
           }
+          this.update(blockNode);
         }
-      }
+      });
 
       while (stops < starts) {
         statements.unshift(this.getAssertAsyncDeclaration(stops));
