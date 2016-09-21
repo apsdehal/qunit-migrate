@@ -52,14 +52,19 @@ module.exports = function (config) {
     checker.configure(jscsConfig);
   }
 
-  if (Array.isArray(config.files)) {
+  if (!Array.isArray(config.files)) {
+    config.files = [config.files];
+  }
+  console.log(config.files[0]);
+  if (config.files.length != 1) {
     parseFiles(null, config.files);
   } else {
-    glob(config.files, parseFiles);
+    glob(config.files[0], parseFiles);
   }
 
 
   function parseFiles(error, files) {
+    console.log(files);
     if (error) {
       console.log(logSymbols.error, chalk.bold.red('Error in Globbing pattern!'));
       console.log(error.toString());
